@@ -2,6 +2,7 @@ const express=require('express');
 const BodyParser=require('body-parser');
 const app=express();
 const Route=require('./Routes/route');
+const cors=require('cors');
 
 const {mongoose} = require('./Connection/Connection');  
 
@@ -10,6 +11,8 @@ const {mongoose} = require('./Connection/Connection');
     app.use(BodyParser.urlencoded({extended:true}));
 
     app.use(express.static('public'));
+
+    app.use(cors());
      
 
       app.use('/api',Route);  
