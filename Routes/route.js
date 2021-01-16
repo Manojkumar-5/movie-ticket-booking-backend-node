@@ -93,6 +93,28 @@ router.post('/init', async(req,res) =>{
 
 
 
+router.post('/update', async(req,res) =>{        
+  try{
+    for(var i=1;i<=40;i++)
+    {
+        
+    await Ticket.updateMany({i},{email:"user@gmail.com",isbooked:false,bookingid:"abc123"});
+    
+    
+    }
+    return res.status(201).json({ message: "Ticket Initialization Success" });
+  }  
+  catch(error){
+    return res.status(400).json({ error });
+  }
+});
+
+
+
+
+
+
+
 router.post('/booking', async(req,res) =>{        
     try{
 
